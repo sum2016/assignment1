@@ -27,6 +27,9 @@ Nicolas Gallagher and Jonathan Neal http://necolas.github.com/normalize.css/
 # Typography
 # Elements
 # Forms
+# Layout
+	## Header
+	## Footer
 # Navigation
 	## Links
 	## Menus
@@ -266,7 +269,7 @@ input,
 select,
 textarea {
 	color: #404040;
-	font-family: sans-serif;
+	font-family: 'Prompt', sans-serif;
 	font-size: 16px;
 	font-size: 1rem;
 	line-height: 1.5;
@@ -279,6 +282,7 @@ h4,
 h5,
 h6 {
 	clear: both;
+	font-family: 'Marcellus SC', serif;
 }
 
 p {
@@ -500,6 +504,51 @@ textarea {
 }
 
 /*--------------------------------------------------------------
+# Layout
+--------------------------------------------------------------*/
+.container{
+	width:auto;
+}
+#primary{
+    max-width:750px;
+	margin:auto;
+	padding: 0;
+    width: 100%;
+}
+#secondary{
+    display: table;
+    margin: 50px auto 0;
+	padding: 0;
+    width: 100%;
+}
+#main{
+	padding-top:30px;
+}
+/*--------------------------------------------------------------
+## Header
+--------------------------------------------------------------*/
+#masterhead{
+	height: auto;
+}
+.site-branding{
+	margin: 0 auto;
+	padding: 25px 0;
+	text-align: center;
+}
+.site-branding h1{
+	font-size: 40px;
+	margin: 0;
+	padding: 0;
+}
+.site-branding h1 a{
+	text-decoration: none;
+}
+/*--------------------------------------------------------------
+## Footer
+--------------------------------------------------------------*/
+FOOTER
+
+/*--------------------------------------------------------------
 # Navigation
 --------------------------------------------------------------*/
 /*--------------------------------------------------------------
@@ -531,6 +580,15 @@ a:active {
 /*--------------------------------------------------------------
 ## Menus
 --------------------------------------------------------------*/
+#site-navigation{
+	background-color:#46b6de;
+	line-height:40px;
+	min-height:40px;
+	position: absolute;
+	width:90%;
+	z-index: 10;
+	margin: auto;
+}
 .main-navigation {
 	clear: both;
 	display: block;
@@ -543,16 +601,22 @@ a:active {
 	list-style: none;
 	margin: 0;
 	padding-left: 0;
+	text-align: center;
 }
 
 .main-navigation li {
 	float: left;
+	position: relative;
+	display: inline-block;
 	position: relative;
 }
 
 .main-navigation a {
 	display: block;
 	text-decoration: none;
+	font-weight: bold;
+	padding: 1.159em 1.618rem;
+	text-transform: uppercase;
 }
 
 .main-navigation ul ul {
