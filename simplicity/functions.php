@@ -44,8 +44,8 @@ function simplicity_setup() {
 
 	// This theme uses wp_nav_menu() in one location.
 	register_nav_menus( array(
-		'primary' => esc_html__( 'Primary', 'simplicity' ),
-	) );
+		'primary' => 'Primary Menu'
+	));
 
 	/*
 	 * Switch default core markup for search form, comment form, and comments
@@ -138,3 +138,15 @@ require get_template_directory() . '/inc/customizer.php';
  * Load Jetpack compatibility file.
  */
 require get_template_directory() . '/inc/jetpack.php';
+
+/** MY CODES
+*
+**/
+function googlefonts() {
+	$query_args = array(
+		'family' => 'Prompt:400|Marcellus+SC:400'
+	);
+	wp_register_style( 'googlefonts', add_query_arg( $query_args, "//fonts.googleapis.com/css" ), array(), null );
+	wp_enqueue_style('googlefonts');
+}   
+add_action('wp_enqueue_scripts', 'googlefonts');
