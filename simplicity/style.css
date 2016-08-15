@@ -268,7 +268,7 @@ button,
 input,
 select,
 textarea {
-	color: #404040;
+	color: #a5a5a5;
 	font-family: 'Prompt', sans-serif;
 	font-size: 16px;
 	font-size: 1rem;
@@ -506,30 +506,34 @@ textarea {
 /*--------------------------------------------------------------
 # Layout
 --------------------------------------------------------------*/
+body{
+	background-color: black;
+}
 .container{
 	width:auto;
-}
-#primary{
-    max-width:750px;
-	margin:auto;
-	padding: 0;
-    width: 100%;
-}
-#secondary{
-    display: table;
-    margin: 50px auto 0;
-	padding: 0;
-    width: 100%;
+
 }
 #main{
-	padding-top:30px;
+    max-width:45em;
+	margin: 0 auto;
+	padding: 50px;
+
+    width: 100%;
+    opacity: 10%;
+    background-color: rgba(132, 132, 132, 0.2);
 }
 /*--------------------------------------------------------------
 ## Header
 --------------------------------------------------------------*/
-#masterhead{
+.site-header{
+	background: url('img/hbg.jpg') no-repeat center; /*Picture taken and belongs to Hyue Lin Kang*/
+	background-size: cover;
+}
+
+#masthead{
 	height: auto;
 }
+
 .site-branding{
 	margin: 0 auto;
 	padding: 25px 0;
@@ -546,8 +550,10 @@ textarea {
 /*--------------------------------------------------------------
 ## Footer
 --------------------------------------------------------------*/
-FOOTER
-
+#colophon{
+	background-color:grey;
+	min-height: 4em;
+}
 /*--------------------------------------------------------------
 # Navigation
 --------------------------------------------------------------*/
@@ -586,7 +592,7 @@ a:active {
 	min-height:40px;
 	position: absolute;
 	width:90%;
-	z-index: 10;
+
 	margin: auto;
 }
 .main-navigation {
@@ -809,6 +815,9 @@ a:active {
 /*--------------------------------------------------------------
 # Content
 --------------------------------------------------------------*/
+#content{
+margin-top: auto;
+}
 /*--------------------------------------------------------------
 ## Posts and pages
 --------------------------------------------------------------*/
