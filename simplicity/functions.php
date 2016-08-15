@@ -44,8 +44,8 @@ function simplicity_setup() {
 
 	// This theme uses wp_nav_menu() in one location.
 	register_nav_menus( array(
-		'primary' => 'Primary Menu'
-	));
+		'primary' => esc_html__( 'Primary', 'simplicity' ),
+	) );
 
 	/*
 	 * Switch default core markup for search form, comment form, and comments
@@ -142,6 +142,10 @@ require get_template_directory() . '/inc/jetpack.php';
 /** MY CODES
 *
 **/
+
+/**
+* Enquire Google Fonts
+*/
 function googlefonts() {
 	$query_args = array(
 		'family' => 'Prompt:400|Marcellus+SC:400'
