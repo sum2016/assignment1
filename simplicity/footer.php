@@ -19,6 +19,12 @@
 			<span class="sep"> | </span>
 			<?php printf( esc_html__( 'Theme: %1$s by %2$s.', 'simplicity' ), 'simplicity', '<a href="http://underscores.me/" rel="designer">Underscores.me</a>' ); ?>
 		</div><!-- .site-info -->
+		
+		<div id="footer-menu">
+			<?php wp_nav_menu( array( 'theme_location'=>'menufoot', 'menu_class'=>'foot-menu')); ?>
+		</div><!-- #footer-menu -->
+		
+		
 	</footer><!-- #colophon -->
 </div><!-- #page -->
 

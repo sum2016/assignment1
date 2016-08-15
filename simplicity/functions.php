@@ -154,3 +154,11 @@ function googlefonts() {
 	wp_enqueue_style('googlefonts');
 }   
 add_action('wp_enqueue_scripts', 'googlefonts');
+
+/**
+* Register New Menus
+*/
+register_nav_menus( array(
+	'menuhead' => ('Header Menu'),
+	'menufoot' => ('Footer Menu')
+));
