@@ -25,9 +25,7 @@
 	<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'simplicity' ); ?></a>
 
 	<header id="masthead" class="site-header" role="banner">
-		<div id="logo" class="logo">
-			<img src="<?php header_image(); ?>" alt="webiste logo">
-		</div>
+		
 		<div class="site-branding">
 			<?php
 			if ( is_front_page() && is_home() ) : ?>
