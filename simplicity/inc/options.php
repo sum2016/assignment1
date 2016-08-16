@@ -69,7 +69,7 @@ function settings_new() {
 	function options_page_section_callback_nav() { 
 		echo 'Customize copyright line using option below.';
 	}
-		//Change Copyright Line
+		//On/Off Copyright Line
 			add_settings_field( 
 			'checkbox_field', 
 			'Check your preference', 
@@ -84,7 +84,7 @@ function settings_new() {
 			<label>Turn it On</label> 
 			<?php	
 		}
-
+		//Change Copyright Line
 		add_settings_field( 
 			'text_field', 
 			'Enter New Copyright Line', 
