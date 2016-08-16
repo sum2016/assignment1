@@ -178,3 +178,9 @@ add_filter( 'avatar_defaults', 'custom_gravatar' );
 */
 $headimg=array('default-image'=>get_template_directory_uri() . '/img/logo.png');
 add_theme_support ('custom-header', $headimg);
+
+/**
+* The Theme Options
+*/
+
+require get_stylesheet_directory() . '/inc/options.php';
