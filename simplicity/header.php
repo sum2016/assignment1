@@ -25,12 +25,15 @@
 	<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'simplicity' ); ?></a>
 
 	<header id="masthead" class="site-header" role="banner">
+		<div id="logo" class="logo">
+			<img src="<?php header_image(); ?>" alt="webiste logo">
+		</div>
 		<div class="site-branding">
 			<?php
 			if ( is_front_page() && is_home() ) : ?>
-				<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
+				<div id="logo" class="logo"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><img src="<?php header_image(); ?>" alt="webiste logo"></a></div>
 			<?php else : ?>
-				<p class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></p>
+				<div class="logo"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><img src="<?php header_image(); ?>" alt="webiste logo"></a></div>
 			<?php
 			endif;
 
@@ -45,10 +48,6 @@
 			<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Primary Menu', 'simplicity' ); ?></button>
 			<?php wp_nav_menu( array( 'theme_location' => 'primary', 'menu_id' => 'primary-menu' ) ); ?>
 		</nav><!-- #site-navigation -->
-		
-		<div id="header-menu">
-			<?php wp_nav_menu( array( 'theme_location'=>'menuhead', 'menu_class'=>'header-menu')); ?>
-		</div><!-- #header-menu -->
 
 	</header><!-- #masthead -->
 

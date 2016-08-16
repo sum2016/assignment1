@@ -159,6 +159,22 @@ add_action('wp_enqueue_scripts', 'googlefonts');
 * Register New Menus
 */
 register_nav_menus( array(
-	'menuhead' => ('Header Menu'),
 	'menufoot' => ('Footer Menu')
 ));
+
+/**
+* Customizes Gravatar
+*/
+//**Reference** line 28-33 from Code Play Love link: http://codeplaylove.com/add-custom-gravatar/
+function custom_gravatar ($avatar_defaults) {
+    $myavatar = get_stylesheet_directory_uri() . '/img/logo.png'; //**Reference** Image Created by Hyue Lin Kang
+    $avatar_defaults[$myavatar] = __( 'Simplicity Gravatar', 'simplicity' );
+    return $avatar_defaults;
+}
+add_filter( 'avatar_defaults', 'custom_gravatar' );
+
+/**
+* Header Image
+*/
+$headimg=array('default-image'=>get_template_directory_uri() . '/img/logo.png');
+add_theme_support ('custom-header', $headimg);

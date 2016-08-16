@@ -44,6 +44,8 @@ Nicolas Gallagher and Jonathan Neal http://necolas.github.com/normalize.css/
 # Media
 	## Captions
 	## Galleries
+	## Header Image
+#Mobile
 --------------------------------------------------------------*/
 
 /*--------------------------------------------------------------
@@ -586,15 +588,6 @@ a:active {
 /*--------------------------------------------------------------
 ## Menus
 --------------------------------------------------------------*/
-#site-navigation{
-	background-color:#46b6de;
-	line-height:40px;
-	min-height:40px;
-	position: absolute;
-	width:90%;
-
-	margin: auto;
-}
 .main-navigation {
 	clear: both;
 	display: block;
@@ -607,22 +600,18 @@ a:active {
 	list-style: none;
 	margin: 0;
 	padding-left: 0;
-	text-align: center;
 }
 
 .main-navigation li {
 	float: left;
 	position: relative;
-	display: inline-block;
-	position: relative;
+
 }
 
 .main-navigation a {
 	display: block;
 	text-decoration: none;
-	font-weight: bold;
-	padding: 1.159em 1.618rem;
-	text-transform: uppercase;
+
 }
 
 .main-navigation ul ul {
@@ -680,13 +669,122 @@ a:active {
 .main-navigation.toggled ul {
 	display: block;
 }
-
+.menu-toggle {
+	background: none repeat scroll 0 0 transparent;
+    border: medium none;
+    box-shadow: none;
+    color: #fd8790;
+    display: none;
+    font-size: 1.5em;
+    text-shadow: none;
+    text-transform: uppercase;
+}
+.menu-toggle:hover{
+	border:none;
+	box-shadow: none;
+	color:#9cd4d4;
+}
+.menu-toggle:before{
+	content: '\2666';
+	padding-right: 5px;
+}
+.menu-toggle:after{
+	content: '\2666';
+	padding-left: 5px;
+}
 @media screen and (min-width: 37.5em) {
 	.menu-toggle {
 		display: none;
 	}
 	.main-navigation ul {
 		display: block;
+	}
+
+}
+@media screen and (max-width: 37.5em) {
+	#site-navigation{
+		position:initial;
+			top:0;
+	}
+	.menu-toggle{
+		margin:auto;
+		text-align:center;
+		width:auto;
+	}
+	.main-navigation #menu-main-items {
+		display: none;
+	}
+	.main-navigation ul li:hover > ul {
+		display: none;
+	}
+
+	.menu-toggle,
+	.main-navigation.toggled #menu-main-items {
+		display: block;
+	}
+	.main-navigation #menu-main-items,
+	.main-navigation #menu-social{
+		float:none;
+		text-align:center;
+		width:100%;
+	}
+	.main-navigation #menu-main-items li{
+		display:block;
+		padding:1px;
+		width:100%;
+	}
+	.main-navigation #menu-main-items .menu-item.on .sub-menu,
+	.main-navigation #menu-main-items .menu-item.on .sub-menu ul{
+		box-shadow: none;
+	    display: block;
+	    float: none;
+	    position: relative;
+	    	left:0;
+	    	top:0;
+	    text-align: center;
+	}
+	.main-navigation #menu-main-items .menu-item.on .sub-menu li,
+	.main-navigation #menu-main-items .menu-item.on .sub-menu li a{
+		float:none;
+		text-align:center;
+		width:100%;
+	}
+	.site-branding {
+	    margin-top: 45px;
+	    width:auto;
+	}
+	.container{
+		width:auto;
+	}
+	#primary{
+		background-color: transparent;
+		float: none;
+		margin: 25px auto;
+		padding-left: 10px;
+		padding-right: 10px;
+		width: 99%;
+	}
+	#secondary{
+		float: none;
+		margin: 25px auto;
+		padding-left: 15px;
+		padding-right: 40px;
+		width: 485%;
+	}
+	#sidebar-widgets .widget{
+		padding-left: 20%;
+		padding-right: 20%;
+	}
+	.copyright,
+	.credits{
+		float:none;
+		text-align: left;
+		width:100%;
+	}
+	#footer-widgets .widget {
+		float: none;
+		padding-left: 30%;
+		width: 70%
 	}
 }
 
@@ -711,6 +809,7 @@ a:active {
 	text-align: right;
 	width: 50%;
 }
+
 
 /*--------------------------------------------------------------
 # Accessibility
@@ -964,4 +1063,60 @@ object {
 
 .gallery-caption {
 	display: block;
+}
+/*--------------------------------------------------------------
+## Header Image
+--------------------------------------------------------------*/
+#logo{
+	vertical-align: middle;
+}
+
+
+/*--------------------------------------------------------------
+# Mobile
+--------------------------------------------------------------*/
+/*--------------------------------------------------------------
+## Smartphone
+--------------------------------------------------------------*/
+@media screen and (max-width: 399px) {
+	#site-navigation{
+		line-height: 50px;
+	}
+	.site-branding{
+		margin: 10px 5px;
+	}
+	#primary{
+		margin-top: 0;
+	}
+	#colophon{
+		margin-top: 10px;
+	}
+	#main{
+		padding: 50px 20px;
+	}
+	.entry-content{
+		margin: 1em 0 0;
+	}
+	.page .entry-content{
+		margin: 1.5em 5px;
+	}
+	.entry-footer{
+		margin: 0 auto;
+	}
+	#footer-widgets .widget{
+		padding-left: 25%;
+		width: 70%;
+	}
+}
+#mobileview{
+	background: #1a384f;
+}
+#mobileview h1{
+	margin: 0;
+	padding: 20px 0;
+	text-align: center;
+}
+#mobileview a{
+	text-decoration: none;
+	color:#fc7464;
 }
