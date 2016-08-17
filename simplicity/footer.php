@@ -20,12 +20,15 @@
 			<span class="sep"> | </span>
 			<?php printf( esc_html__( 'Theme: %1$s by %2$s.', 'simplicity' ), 'simplicity', '<a href="http://underscores.me/" rel="designer">Underscores.me</a>' . ' edited by Helen' ); ?>
 		</div><!-- .site-info -->
-		<?php $options = get_option( 'options_settings');
-			if ($options[checkbox_field] == 'on'){?>
-			<div class="site-info">
-				<p class="copyright">&copy; <?php echo date('Y'); ?> <a href="<?php echo home_url(); ?>"><img src="<?php header_image(); ?>" alt="webiste logo"></a>. All Rights Reserved.</p> 
-			</div> <?php } ?><!-- .site-info -->
 		
+		<?php
+			$options = get_option( 'options_settings'); //Applying Theme Options Setting
+				if ($options[checkbox_field] == 'on'){?>
+					<div class="site-info">
+						<p class="copyright">&copy; <?php echo date('Y'); ?> <a href="<?php echo home_url(); ?>"><img src="<?php header_image(); ?>" alt="webiste logo"></a>. All Rights Reserved.</p> 
+					</div><!-- .site-info -->
+					<?php }
+		?>
 
 		<div id="footer-menu">
 			<?php wp_nav_menu( array( 'theme_location'=>'menufoot', 'menu_class'=>'foot-menu')); ?>

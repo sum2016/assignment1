@@ -28,12 +28,21 @@
 		
 		<div class="site-branding">
 			<?php
-			if ( is_front_page() && is_home() ) : ?>
-				<div id="logo" class="logo"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><img src="<?php header_image(); ?>" alt="webiste logo"></a></div>
-			<?php else : ?>
-				<div class="logo"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><img src="<?php header_image(); ?>" alt="webiste logo"></a></div>
-			<?php
-			endif;
+				$options = get_option( 'options_settings'); //Applying Theme Options Setting
+					if ( is_front_page() && is_home() ){
+						if ($options[radio_field] == '1'){ ?>
+							<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
+						<?php } elseif ($options[radio_field] == '2'){ ?>
+							<div id="logo" class="logo"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><img src="<?php header_image(); ?>" alt="webiste logo"></a></div>
+					<?php }
+					}
+					else {
+						if ($options[radio_field] == '1'){ ?>
+							<p class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></p>
+						<?php } elseif ($options[radio_field] == '2'){ ?>
+							<div class="logo"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><img src="<?php header_image(); ?>" alt="webiste logo"></a></div>
+					<?php }
+					};
 
 			$description = get_bloginfo( 'description', 'display' );
 			if ( $description || is_customize_preview() ) : ?>

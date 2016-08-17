@@ -16,23 +16,49 @@ add_action( 'admin_menu', 'add_submenu' );
 function settings_new() { 
 	register_setting( 'theme_options', 'options_settings' );
 	
-	//Navigation Setting
+	//Header Setting
 	add_settings_section(
-		'options_page_section', 
-		'Navigation', 
-		'options_page_section_callback', 
+		'options_page_section_hd', 
+		'Header Setting', 
+		'options_page_section_callback_hd', 
 		'theme_options'
 	);
-	function options_page_section_callback() { 
+	function options_page_section_callback_hd() { 
+		echo 'Customize header using options below.';
+	}
+		//Header Display Options
+			add_settings_field( 
+			'radio_field', 
+			'Select Site Title Display', 
+			'radio_field_render', 
+			'theme_options', 
+			'options_page_section_hd'
+		);
+		function radio_field_render() { 
+			$options = get_option( 'options_settings' );
+			?>
+			<input type="radio" name="options_settings[radio_field]" <?php if (isset($options['radio_field'])) checked( $options['radio_field'], 1 ); ?> value="1" /> <label>Blog Name</label><br />
+			<input type="radio" name="options_settings[radio_field]" <?php if (isset($options['radio_field'])) checked( $options['radio_field'], 2 ); ?> value="2" /> <label>Blog Logo</label>
+			<?php
+		}
+
+	//Navigation Setting
+	add_settings_section(
+		'options_page_section_nav', 
+		'Navigation Setting', 
+		'options_page_section_callback_nav', 
+		'theme_options'
+	);
+	function options_page_section_callback_nav() { 
 		echo 'Customize navigation using options below.';
 	}
-		//On/Off Navigation
+	//On/Off Navigation
 		add_settings_field( 
 			'select_field', 
-			'Turn Navgation On/Off', 
+			'Choose to Display Navgation', 
 			'select_field_render', 
 			'theme_options', 
-			'options_page_section'  
+			'options_page_section_nav'  
 		);	
 		function select_field_render() { 
 			$options = get_option( 'options_settings' );
@@ -43,39 +69,24 @@ function settings_new() {
 			</select>
 		<?php
 		}
-		//Location of Navigation
-			add_settings_field( 
-			'radio_field', 
-			'Choose the Location of the Navigation Bar', 
-			'radio_field_render', 
-			'theme_options', 
-			'options_page_section'
-		);
-		function radio_field_render() { 
-			$options = get_option( 'options_settings' );
-			?>
-			<input type="radio" name="options_settings[radio_field]" <?php if (isset($options['radio_field'])) checked( $options['radio_field'], 1 ); ?> value="1" /> <label>Right</label><br />
-			<input type="radio" name="options_settings[radio_field]" <?php if (isset($options['radio_field'])) checked( $options['radio_field'], 2 ); ?> value="2" /> <label>Left</label>
-			<?php
-		}
 
 	//Copyright Setting
 	add_settings_section(
-		'options_page_section_nav', 
-		'Copyright', 
-		'options_page_section_callback_nav', 
+		'options_page_section_cr', 
+		'Copyright Setting', 
+		'options_page_section_callback_cr', 
 		'theme_options'
 	);
-	function options_page_section_callback_nav() { 
+	function options_page_section_callback_cr() { 
 		echo 'Customize copyright line using option below.';
 	}
 		//On/Off Copyright Line
 			add_settings_field( 
 			'checkbox_field', 
-			'Check your preference', 
+			'Check to Turn Copyright On', 
 			'checkbox_field_render', 
 			'theme_options', 
-			'options_page_section_nav'  
+			'options_page_section_cr'  
 		);
 		function checkbox_field_render() { 
 			$options = get_option( 'options_settings' );
@@ -90,7 +101,7 @@ function settings_new() {
 			'Enter New Copyright Line', 
 			'text_field_render', 
 			'theme_options', 
-			'options_page_section_nav' 
+			'options_page_section_cr' 
 		);
 		function text_field_render() { 
 			$options = get_option( 'options_settings' );
