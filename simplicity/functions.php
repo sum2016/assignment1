@@ -176,7 +176,7 @@ add_filter( 'avatar_defaults', 'custom_gravatar' );
 /**
 * Header Image
 */
-$headimg=array('default-image'=>get_template_directory_uri() . '/img/logo.png');
+$headimg=array('default-image'=>get_template_directory_uri() . '/img/hlogo.png');
 add_theme_support ('custom-header', $headimg);
 
 /**
