@@ -98,7 +98,7 @@ function settings_new() {
 		//Change Copyright Line
 		add_settings_field( 
 			'text_field', 
-			'Enter New Copyright Line', 
+			'Enter New Copyright Line: &copy', 
 			'text_field_render', 
 			'theme_options', 
 			'options_page_section_cr' 

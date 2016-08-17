@@ -14,6 +14,9 @@
 	</div><!-- #content -->
 
 	<footer id="colophon" class="site-footer" role="contentinfo">
+		<div id="footer-menu">
+			<?php wp_nav_menu( array( 'theme_location'=>'menufoot', 'menu_class'=>'foot-menu')); ?>
+		</div><!-- #footer-menu -->
 
 		<div class="site-info">
 			<a href="<?php echo esc_url( __( 'https://wordpress.org/', 'simplicity' ) ); ?>"><?php printf( esc_html__( 'Proudly powered by %s', 'simplicity' ), 'WordPress' ); ?></a>
@@ -23,18 +26,17 @@
 		
 		<?php
 			$options = get_option( 'options_settings'); //Applying Theme Options Setting
-				if ($options[checkbox_field] == 'on'){?>
-					<div class="site-info">
-						<p class="copyright">&copy; <?php echo date('Y'); ?> <a href="<?php echo home_url(); ?>"><img src="<?php header_image(); ?>" alt="webiste logo"></a>. All Rights Reserved.</p> 
-					</div><!-- .site-info -->
+				if ($options[checkbox_field] == 'on'){
+					if ($options[text_field] == !null){
+						echo '&copy ' . $options['text_field'];
+					}
+					else{ ?>
+						<div class="site-info">
+							<p class="copyright">&copy; <?php echo date('Y'); ?> <a href="<?php echo home_url(); ?>"><img src="<?php header_image(); ?>" alt="webiste logo"></a>. All Rights Reserved.</p> 
+						</div><!-- .site-info -->
 					<?php }
+				}
 		?>
-
-		<div id="footer-menu">
-			<?php wp_nav_menu( array( 'theme_location'=>'menufoot', 'menu_class'=>'foot-menu')); ?>
-		</div><!-- #footer-menu -->
-		
-		
 	</footer><!-- #colophon -->
 </div><!-- #page -->
 
