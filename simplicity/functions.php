@@ -251,4 +251,4 @@ function link_meta_box_save( $post_id ){
     if( isset( $_POST['link'] ) )  
         update_post_meta( $post_id, 'link_key', esc_attr( $_POST['link'], $allowed ) );
 }
-add_action( 'save_post', 'link_meta_box_save' ); 
+add_action( 'save_post', 'link_meta_box_save' );
