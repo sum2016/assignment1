@@ -191,7 +191,7 @@ require get_stylesheet_directory() . '/inc/options.php';
 */
 
 function portfolio_post_type() {
-  register_post_type( 'portfolio',
+  register_post_type( 'Portfolio',
     array(
     	'labels' => array( //customize label texts
     		'name' => 'Portfolio',
@@ -216,39 +216,3 @@ function portfolio_post_type() {
   );
 }
 add_action( 'init', 'portfolio_post_type' );
-
-/**
-* Custom Meta Box
-* Reference from Codex: https://codex.wordpress.org/Plugin_API/Action_Reference/add_meta_boxes & http://www.talkofweb.com/wordpress-meta-box-add-extra-input-fields-post/
-*/
-
-//Create Meta Box
-function link_meta_box() {  
-    add_meta_box(
-    	'link_meta_box_id', //set ID
-    	'Link of the Advertisment', //title to display at the top of the meta box
-    	'link_metabox', //function for render
-    	'portfolio', //where to display the meta box
-    	'normal',	//set location to display the meta box
-    	'default'	//set location to play the meta box
-    );  
-}  
-add_action( 'add_meta_boxes', 'link_meta_box' );  
-
-//Meta Box Content
-function link_metabox() {
-    wp_nonce_field( basename( __FILE__ ), 'link_meta_box_nonce' );
-    $address = get_post_meta(get_the_ID(), 'link_key', true);
-    $infodp = '<label>Link: </label><input type="text" name="link" value="'.$address.'"/>';
-    echo $infodp;
-}
-
-//Save Information Inputted Into Meta Box
-function link_meta_box_save( $post_id ){   
-    if( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) return; 
-    if ( !isset( $_POST['link_meta_box_nonce'] ) || !wp_verify_nonce( $_POST['link_meta_box_nonce'], basename( __FILE__ ) ) ) return;
-    if( !current_user_can( 'edit_post' ) ) return;  
-    if( isset( $_POST['link'] ) )  
-        update_post_meta( $post_id, 'link_key', esc_attr( $_POST['link'], $allowed ) );
-}
-add_action( 'save_post', 'link_meta_box_save' ); 
