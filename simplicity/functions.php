@@ -190,19 +190,29 @@ require get_stylesheet_directory() . '/inc/options.php';
 * Reference from Codex: https://codex.wordpress.org/Post_Types & https://codex.wordpress.org/Function_Reference/register_post_type
 */
 
-function home_post_type() {
-  register_post_type( 'Home',
+function portfolio_post_type() {
+  register_post_type( 'Portfolio',
     array(
-    	'labels' => array(
-    		'name' => __( 'Home' ),
-    		'singular_name' => __( 'Home' )
+    	'labels' => array( //customize label texts
+    		'name' => 'Portfolio',
+    		'singular_name' => 'Portfolio',
+    		'add_new' => 'Add Portfolio',
+    		'add_new_item' => 'Add New Portfolio',
+      		'edit_item' => 'Edit Portfolio',
+      		'new_item' => 'New Portfolio',
+      		'view_item' => 'View Portfolio',
+      		'search_items' => 'Search Portfolio',
+      		'not_found' => 'No Portfolio Found',
+      		'not_found_in_trash' => 'No Portfolio has been trashed',
+      		'parent_item_colon' => 'Parent Portfolio',
+      		'all_items' => 'All Portfolio'
       	),
       	'public' => true, //controls visibility
-      	'menu_position' => 3, //menu position - 5 sets it below posts
-      	'menu_icon' => 'dashicons-admin-home', //change menu icon to home icon
+      	'menu_position' => 4, //menu position - 5 sets it below posts
+      	'menu_icon' => 'dashicons-portfolio', //change menu icon to home icon & Reference: https://developer.wordpress.org/resource/dashicons/#portfolio
       	'has_archive' => true, //Enables post type archives
       	'can_export' => false //Disable post export
-    )
+	)  
   );
 }
-add_action( 'init', 'home_post_type' );
+add_action( 'init', 'portfolio_post_type' );

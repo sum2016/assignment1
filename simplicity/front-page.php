@@ -9,21 +9,25 @@
 
 get_header();
 ?>
+
 <div id="primary" class="content-area">
-		<main id="main" class="site-main" role="main">
+	<main id="main" class="site-main" role="main">
 
 		<?php
-			$home = array( 'post_type' => 'home', 'posts_per_page' => 1 );
-			$query = new WP_Query( $home );
+			$portfolio = array( 'post_type' => 'Portfolio', 'posts_per_page' => 4 );
+			$query = new WP_Query( $portfolio );
 				while ( $query->have_posts() ) : $query->the_post();
-				  echo '<div class="home-ontent">';
-				  the_content();
-				  echo '</div>';
+get_template_part( 'template-parts/content', get_post_format() );
+
+
 				endwhile;
+		the_posts_navigation();
+
 		?>
 
-		</main><!-- #main -->
-	</div><!-- #primary -->
+	</main><!-- #main -->
+</div><!-- #primary -->
+
 <?php
 get_sidebar();
 get_footer();
