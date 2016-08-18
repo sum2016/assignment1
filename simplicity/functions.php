@@ -210,6 +210,18 @@ function portfolio_post_type() {
       	'public' => true, //controls visibility
       	'menu_position' => 4, //menu position - 5 sets it below posts
       	'menu_icon' => 'dashicons-portfolio', //change menu icon to home icon & Reference: https://developer.wordpress.org/resource/dashicons/#portfolio
+      	'hierarchical' => true, // Enables hierarchial structure
+      	'supports' => array( //Enables listed features while creating post
+      		'title',
+      		'editor',
+      		'author',
+      		'thumbnail',
+      		'excerpt'
+      	),
+      	'taxonomies' => array( //Enables category and tags
+      		'category',
+      		'post_tag'
+      	),
       	'has_archive' => true, //Enables post type archives
       	'can_export' => false //Disable post export
 	)  
