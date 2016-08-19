@@ -269,7 +269,7 @@ button,
 input,
 select,
 textarea {
-	color: #a5a5a5;
+	color: #d9e1f9;
 	font-family: 'Prompt', sans-serif;
 	font-size: 16px;
 	font-size: 1rem;
@@ -284,8 +284,45 @@ h5,
 h6 {
 	clear: both;
 	font-family: 'Marcellus SC', serif;
+	color: #fdc4c4;
 }
-
+h1 a,
+h2 a,
+h3 a,
+h4 a,
+h5 a,
+h6 a,
+.entry-content a,
+#colophon a{
+	color:#c4fdc4;
+}
+h1 a:hover, 
+h2 a:hover, 
+h3 a:hover, 
+h4 a:hover, 
+h5 a:hover, 
+h6 a:hover, 
+h1.entry-title a:hover, 
+h2.entry-title a:hover,
+.entry-content a:hover,
+#colophon a:hover{
+	color:#9cd4d4;	
+}
+h1 a:visited, 
+h2 a:visited, 
+h3 a:visited, 
+h4 a:visited, 
+h5 a:visited, 
+h6 a:visited, 
+h1.entry-title a:visited, 
+h2.entry-title a:visited,
+.entry-content a:visited,
+#colophon a:visited{
+	color:#dbdcce;	
+}
+.entry-footer a:hover{
+	color: #fc8474;
+}
 p {
 	margin-bottom: 1.5em;
 }
@@ -523,6 +560,10 @@ body{
     opacity: 10%;
     background-color: rgba(132, 132, 132, 0.2);
 }
+.signature img{
+	float:right;
+	height: 1em;
+}
 /*--------------------------------------------------------------
 ## Header
 --------------------------------------------------------------*/
@@ -537,7 +578,8 @@ body{
 
 .site-branding{
 	margin: 0 auto;
-	padding: 25px 0;
+	padding: 3em 0;
+	margin-top: 4em;
 	text-align: center;
 }
 .site-branding h1{
@@ -548,12 +590,72 @@ body{
 .site-branding h1 a{
 	text-decoration: none;
 }
+
+.site-branding img:hover{
+	opacity: 0.4;
+}
 /*--------------------------------------------------------------
 ## Footer
 --------------------------------------------------------------*/
+.copyright{
+	float:right;
+	width:auto;
+}
+.copyright img{
+	max-width: 2em;
+	height: auto;
+}
 #colophon{
-	background-color:grey;
+	background-color:#333333;
 	min-height: 4em;
+}
+.menu-footer-container ul{
+	list-style-type: none;
+	margin: 0;
+	padding:0;
+}
+.menu-footer-container li{
+	float:left;
+	margin-left: 10px;
+}
+.menu-footer-container li a{
+	display: inline-block;
+	text-decoration: none;
+}
+.widget-foot{
+	color:#ffffff;
+}
+
+.menu-footer-menu-container {
+	background-color: #5b5b5b;
+	vertical-align: middle;
+	max-height: 3em;
+	clear: both;
+	display: block;
+	float: left;
+	width: 100%;
+	text-align: center;
+	margin-bottom: 1em;
+}
+
+.menu-footer-menu-container ul {
+	list-style: none;
+	margin: 0;
+	padding-left: 0;
+}
+
+.menu-footer-menu-container li {
+	padding: 0.5em;
+	display: inline-block;
+	float: none;
+	position: relative;
+}
+
+#colophon .menu-footer-menu-container .foot-menu a {
+	color: #6687e7;
+	display: block;
+	text-decoration: none;
+	font-size: 1.2em;
 }
 /*--------------------------------------------------------------
 # Navigation
@@ -562,7 +664,8 @@ body{
 ## Links
 --------------------------------------------------------------*/
 a {
-	color: royalblue;
+	color: #6687e7;
+	text-transform: uppercase;
 }
 
 a:visited {
@@ -572,7 +675,7 @@ a:visited {
 a:hover,
 a:focus,
 a:active {
-	color: midnightblue;
+	color: #c6d2f6;
 }
 
 a:focus {
@@ -587,11 +690,17 @@ a:active {
 /*--------------------------------------------------------------
 ## Menus
 --------------------------------------------------------------*/
+#site-navigation{
+	background-color: #333333;
+	vertical-align: middle;
+	max-height: 3em;
+}
 .main-navigation {
 	clear: both;
 	display: block;
 	float: left;
 	width: 100%;
+	text-align: center;
 }
 
 .main-navigation ul {
@@ -602,24 +711,26 @@ a:active {
 }
 
 .main-navigation li {
-	float: left;
+	padding: 0.5em;
+	display: inline-block;
+	float: none;
 	position: relative;
-
 }
 
 .main-navigation a {
 	display: block;
 	text-decoration: none;
-
+	font-size: 1.2em;
 }
 
 .main-navigation ul ul {
 	box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2);
 	float: left;
-	position: absolute;
-	top: 1.5em;
+	position: relative;
+	top: 0.4em;
 	left: -999em;
 	z-index: 99999;
+	background-color: #333333;
 }
 
 .main-navigation ul ul ul {
@@ -628,11 +739,11 @@ a:active {
 }
 
 .main-navigation ul ul a {
-	width: 200px;
+	width: 5em;
 }
 
 .main-navigation ul ul li {
-
+	display: inline;
 }
 
 .main-navigation li:hover > a,
@@ -808,8 +919,6 @@ a:active {
 	text-align: right;
 	width: 50%;
 }
-
-
 /*--------------------------------------------------------------
 # Accessibility
 --------------------------------------------------------------*/
