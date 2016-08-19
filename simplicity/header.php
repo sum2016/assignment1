@@ -58,7 +58,13 @@
 				<?php wp_nav_menu( array( 'theme_location' => 'primary', 'menu_id' => 'primary-menu' ) ); ?>
 			</nav><!-- #site-navigation -->
 		<?php } ?>
-
+		<div id="header_widget">
+	            <?php if ( is_active_sidebar( 'header_widget' ) ) : ?>
+	                <section id="widget-header" class="widget-area">
+	                    <?php dynamic_sidebar( 'header_widget' ); ?>
+	                </section>
+	            <?php endif; ?>
+	        </div><!-- end #header_widget-->
 	</header><!-- #masthead -->
 
 	<div id="content" class="site-content">
