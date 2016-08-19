@@ -25,17 +25,15 @@ get_header();
 			$portfolio = array( 'post_type' => 'Portfolio', 'posts_per_page' => 1 );
 			$query = new WP_Query( $portfolio );
 				while ( $query->have_posts() ) : $query->the_post();
-					get_template_part( 'template-parts/content', get_post_format() );
-
-					echo 'Advertisement Link: ' . get_post_meta(get_the_ID(), 'link_key', true);
-				
+					get_template_part( 'template-parts/content', get_post_format() );				
 				endwhile;
 
 		the_posts_navigation(
 			array(
-			'mid_size' => 2,
-			'prev_text' => __('&larr; Older Anlysis', '&larr; Older Anlysis'),
-			'next_text'=> __('Recent Anlysis &rarr;', 'Recent Anlysis &rarr;')
+			'mid_size' => 2, //How many page numbers to display to either side of the current page
+			'prev_text' => __('&larr; Older Analysis', '&larr; Older Analysis'),
+			'next_text'=> __('Recent Analysis &rarr;', 'Recent Analysis &rarr;'),
+			'screen_reader_text' => "Analysis Navigation"
 			)
 		);
 		else :
@@ -43,6 +41,7 @@ get_header();
 			get_template_part( 'template-parts/content', 'none' );
 
 		endif;
+
 		?>
 
 	</main><!-- #main -->
