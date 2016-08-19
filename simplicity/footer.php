@@ -17,7 +17,13 @@
 		<div id="footer-menu">
 			<?php wp_nav_menu( array( 'theme_location'=>'menufoot', 'menu_class'=>'foot-menu')); ?>
 		</div><!-- #footer-menu -->
-
+		<div id="footer_widget">
+	            <?php if ( is_active_sidebar( 'footer_widget' ) ) : ?>
+	                <aside id="widget-foot" class="widget-foot">
+	                    <?php dynamic_sidebar( 'footer_widget' ); ?>
+	                </aside>
+	            <?php endif; ?>
+	        </div><!-- end #footer-widgets -->
 		<div class="site-info">
 			<a href="<?php echo esc_url( __( 'https://wordpress.org/', 'simplicity' ) ); ?>"><?php printf( esc_html__( 'Proudly powered by %s', 'simplicity' ), 'WordPress' ); ?></a>
 			<span class="sep"> | </span>
